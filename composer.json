@@ -1,0 +1,21 @@
+{
+    "name": "nc/elephantio-bundle",
+    "description": "Elephant IO integration in Symfony2",
+    "require": {
+        "wisembly/elephant.io": ">=2.0.1"
+    },
+    "require-dev": {
+        "atoum/atoum": "dev-master"
+    },
+    "minimum-stability": "dev",
+    "authors": [
+        {
+            "name": "Nicolas Chaulet",
+            "email": "n.chaulet@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-0": { "Nc\\Bundle\\ElephantIOBundle": "" }
+    },
+    "target-dir": "Nc/Bundle/ElephantIOBundle"
+}
