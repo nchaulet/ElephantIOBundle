@@ -1,5 +1,8 @@
 # Elephant IO Bundle
 
+[![Build Status](https://travis-ci.org/nchaulet/ElephantIOBundle.png)](https://travis-ci.org/nchaulet/ElephantIOBundle)
+
+
 ## configuration sample
 
 	nc_elephant_io:
