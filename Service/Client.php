@@ -11,16 +11,16 @@ class Client
 {
 
 	/** Elephant io Client */
-	protected $elephant;
+	protected $elephantIO;
 
     /**
      * Gets the value of elephant.
      *
      * @return mixed
      */
-    public function getElephant()
+    public function getElephantIO()
     {
-        return $this->elephant;
+        return $this->elephantIO;
     }
 
     /**
@@ -29,9 +29,9 @@ class Client
      *
      * @return self
      */
-    public function __construct(Elephant $elephant)
+    public function __construct(Elephant $elephantIO)
     {
-        $this->elephant = $elephant;
+        $this->elephantIO = $elephantIO;
 
         return $this;
     }
@@ -43,12 +43,12 @@ class Client
     */
     public function send($eventName, $data)
     {
-    	$this->elephant->init();
-    	$this->elephant->send(Elephant::TYPE_EVENT, null, null, json_encode(array(
+    	$this->elephantIO->init();
+    	$this->elephantIO->send(Elephant::TYPE_EVENT, null, null, json_encode(array(
     		'name' => $eventName,
     		'args' => $data
     	)));
 
-    	$this->elephant->close();
+    	$this->elephantIO->close();
     }
 }

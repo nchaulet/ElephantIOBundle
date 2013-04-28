@@ -17,3 +17,7 @@
 	$client = $this->get('elephantio_client.your_key');
     $client->send('event id', $serializableData);
 
+## More complex usage
+
+	$client = $this->get('elephantio_client.your_key');
+	$elephantIOClient = $client->getElephantIO();
