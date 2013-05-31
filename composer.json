@@ -1,6 +1,8 @@
 {
     "name": "nc/elephantio-bundle",
     "description": "Elephant IO integration in Symfony2",
+    "keywords": ["Bundle", "Socket.io", "Elephant.io"],
+    "license": "MIT",
     "require": {
         "wisembly/elephant.io": ">=2.0.1"
     },
