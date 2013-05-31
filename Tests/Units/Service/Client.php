@@ -19,12 +19,12 @@ class Client extends atoum\test
 	*/
 	public function testConstructor()
 	{
-		$this->assert('call constructor with bad arguments')
-			->when(function() {
-				$testClient = new TestedClient('bad argument');
-			})
-			->error()
-			->exists();
+		$this->assert('Test constructor type hinting')
+			->if($method = new \ReflectionMethod('Nc\Bundle\ElephantIOBundle\Service\Client', '__construct'))
+			->and($arguments = $method->getParameters())
+			->then
+			->sizeof($arguments)->isEqualTo(1)
+			->string($arguments[0]->getClass()->getName())->isEqualTo('ElephantIO\Client');
 
 		$this->mockGenerator->orphanize('__construct');
 		$this->mockGenerator->shuntParentClassCalls();
