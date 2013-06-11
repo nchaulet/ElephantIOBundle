@@ -41,7 +41,6 @@ class NcElephantIOExtension extends Extension
     */
     protected function loadClient($name, array $config, ContainerBuilder $container)
     {
-        var_dump($name);
         $definitionIo = new Definition('ElephantIO\Client');
         $definitionIo->addArgument($config['connection']);
         $container->setDefinition('elephant_client.elephantio.'.$name, $definitionIo);
