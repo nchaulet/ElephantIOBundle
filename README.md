@@ -23,3 +23,7 @@
 
 	$client = $this->get('elephantio_client.your_key');
 	$elephantIOClient = $client->getElephantIO();
+
+## Contribute ? 
+
+If you want to improve this bundle, you can use github pull-request and issue
