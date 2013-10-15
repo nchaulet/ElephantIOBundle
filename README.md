@@ -4,7 +4,7 @@
 
 [![knpbundles.com](http://knpbundles.com/nchaulet/ElephantIOBundle/badge)](http://knpbundles.com/nchaulet/ElephantIOBundle)
 
-[![Sensio insight](https://insight.sensiolabs.com/projects/95656013-0bba-426c-90be-07a3b88a5eb6/mini.png)
+[![Sensio insight](https://insight.sensiolabs.com/projects/95656013-0bba-426c-90be-07a3b88a5eb6/mini.png)](https://insight.sensiolabs.com/projects/95656013-0bba-426c-90be-07a3b88a5eb6)
 
 [Elephant.io](https://github.com/Wisembly/elephant.io) library integration in symfony2.
 
