@@ -2,8 +2,6 @@
 
 namespace Nc\Bundle\ElephantIOBundle\Tests\Units\Service;
 
-require_once __DIR__.'/../../../vendor/autoload.php';
-
 use Nc\Bundle\ElephantIOBundle\Service\Client as TestedClient;
 use mageekguy\atoum;
 use ElephantIO\Client as Elephant;
@@ -62,17 +60,14 @@ class Client extends atoum\test
 		$this->assert('call getClient')
 			->object($client = new TestedClient($elephant = new \mock\ElephantIO\Client()))
 			->then
-			->then($client->send('eventnameTest', 'data'))
+			->then($client->send('eventnameTest', ['foo' => 'test']))
 			->mock($elephant)
-				->call('init')
+				->call('initialize')
 					->once()
-				->call('send')
+				->call('emit')
 					->once()
-					->withArguments(json_encode(array(
-			    		'name' => 'eventnameTest',
-			    		'args' => 'data'
-			    	)))
-		    		->withArguments(Elephant::TYPE_EVENT)
+
+					->withArguments('eventnameTest', ['foo' => 'test'])
 		    	->call('close')
 					->once();
 	}

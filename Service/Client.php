@@ -43,12 +43,8 @@ class Client
     */
     public function send($eventName, $data)
     {
-    	$this->elephantIO->init();
-    	$this->elephantIO->send(Elephant::TYPE_EVENT, null, null, json_encode(array(
-    		'name' => $eventName,
-    		'args' => $data
-    	)));
-
+    	$this->elephantIO->initialize();
+    	$this->elephantIO->emit($eventName, $data);
     	$this->elephantIO->close();
     }
 }
