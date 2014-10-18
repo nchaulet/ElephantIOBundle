@@ -40,12 +40,28 @@ class NcElephantIOExtension extends Extension
     protected function loadClient($name, array $config, ContainerBuilder $container)
     {
         $definitionIo = new Definition('ElephantIO\Client');
-        $definitionIo->addArgument($config['connection']);
-        $container->setDefinition('elephant_client.elephantio.'.$name, $definitionIo);
+        $definitionIo->setPublic(false);
+
+        switch ($config['version']) {
+            case '0.x':
+                $versionDefinition = new Definition('ElephantIO\Engine\SocketIO\Version0X');
+                break;
+            default:
+                $versionDefinition = new Definition('ElephantIO\Engine\SocketIO\Version1X');
+                break;
+        }
+        
+        $versionDefinition->addArgument($config['connection']);
+        $versionDefinition->setPublic(false);
+        $container->setDefinition('elephant_client.elephantio_version.' . $name, $versionDefinition);
+
+        $definitionIo->addArgument(new Reference('elephant_client.elephantio_version.' . $name));
+
+        $container->setDefinition('elephant_client.elephantio.' . $name, $definitionIo);
 
         $definition = new Definition('Nc\Bundle\ElephantIOBundle\Service\Client');
-        $definition->addArgument(new Reference('elephant_client.elephantio.'.$name));
+        $definition->addArgument(new Reference('elephant_client.elephantio.' . $name));
 
-        $container->setDefinition('elephantio_client.'.$name, $definition);
+        $container->setDefinition('elephantio_client.' . $name, $definition);
     }
 }
