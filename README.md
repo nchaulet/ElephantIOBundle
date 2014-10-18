@@ -10,25 +10,28 @@
 
 This bundle allows you to communicate with a socket.io server from a Symfony2 application.
 
-
 ## configuration sample
 
 	nc_elephant_io:
 	    clients:
 	        default:
 	            connection: http://192.168.0.14:3006
+	            # specify version 0.x for 0.* version and 1.x for 1.0 version
+	            version: 0.x 
 	        your_key:
 	            connection: http://192.168.0.14:3000
+	            version: 1.x
 
 ## usage
 
 	$client = $this->get('elephantio_client.your_key');
-    $client->send('event id', $serializableData);
+    $client->send('event id', ['foo' => 'test']);
 
 ## More complex usage
 
 	$client = $this->get('elephantio_client.your_key');
 	$elephantIOClient = $client->getElephantIO();
+	// Refer to Elephant.io doc
 
 ## Contribute ? 
 
