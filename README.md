@@ -8,7 +8,7 @@
 
 [Elephant.io](https://github.com/Wisembly/elephant.io) library integration in symfony2.
 
-This bundle allows you to communicate with a socket.io server from a Symfony2 application.
+This bundle allows you to communicate with a socket.io server (0.x or 1.x) from a Symfony2 application.
 
 ## configuration sample
 
@@ -25,7 +25,7 @@ This bundle allows you to communicate with a socket.io server from a Symfony2 ap
 ## usage
 
 	$client = $this->get('elephantio_client.your_key');
-    $client->send('event id', ['foo' => 'test']);
+    $client->send('event_name', ['foo' => 'test']);
 
 ## More complex usage
 

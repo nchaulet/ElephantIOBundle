@@ -7,7 +7,9 @@
         "wisembly/elephant.io": "3.0.*"
     },
     "require-dev": {
-        "atoum/atoum": "dev-master"
+        "atoum/atoum"                   : "dev-master",
+        "m6web/coke"                    : "~1.2",
+        "m6web/symfony2-coding-standard": "~1.1"
     },
     "minimum-stability": "dev",
     "authors": [

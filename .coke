@@ -1,0 +1,5 @@
+DependencyInjection/
+Service/
+Tests/
+
+standard=vendor/m6web/symfony2-coding-standard/Symfony2

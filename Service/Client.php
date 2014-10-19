@@ -10,8 +10,8 @@ use ElephantIO\Client as Elephant;
 class Client
 {
 
-	/** Elephant io Client */
-	protected $elephantIO;
+    /** Elephant io Client */
+    protected $elephantIO;
 
     /**
      * Gets the value of elephant.
@@ -25,7 +25,7 @@ class Client
 
     /**
      * Constructor sets the value of elephant.
-     * @param mixed $elephant the elephant
+     * @param mixed $elephantIO the elephant io client
      *
      * @return self
      */
@@ -43,8 +43,8 @@ class Client
     */
     public function send($eventName, $data)
     {
-    	$this->elephantIO->initialize();
-    	$this->elephantIO->emit($eventName, $data);
-    	$this->elephantIO->close();
+        $this->elephantIO->initialize();
+        $this->elephantIO->emit($eventName, $data);
+        $this->elephantIO->close();
     }
 }

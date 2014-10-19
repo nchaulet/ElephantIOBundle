@@ -35,7 +35,6 @@ class NcElephantIOExtension extends Extension
     * @param string           $name      client name
     * @param array            $config    client config
     * @param ContainerBuilder $container client name
-    *
     */
     protected function loadClient($name, array $config, ContainerBuilder $container)
     {
@@ -50,7 +49,7 @@ class NcElephantIOExtension extends Extension
                 $versionDefinition = new Definition('ElephantIO\Engine\SocketIO\Version1X');
                 break;
         }
-        
+
         $versionDefinition->addArgument($config['connection']);
         $versionDefinition->setPublic(false);
         $container->setDefinition('elephant_client.elephantio_version.' . $name, $versionDefinition);
