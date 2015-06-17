@@ -10,19 +10,38 @@
 
 This bundle allows you to communicate with a socket.io server (0.x or 1.x) from a Symfony2 application.
 
-## configuration sample
+## Installation
+
+```shell
+composer require nc/elephantio-bundle
+```
+
+In your AppKernel
+
+```php
+public function registerbundles()
+{
+    return [
+    	...
+    	...
+    	new Nc\Bundle\ElephantIOBundle\NcElephantIOBundle(),
+    ];
+}
+```
+
+## Configuration sample
 
 	nc_elephant_io:
 	    clients:
 	        default:
 	            connection: http://192.168.0.14:3006
 	            # specify version 0.x for 0.* version and 1.x for 1.0 version
-	            version: 0.x 
+	            version: 0.x
 	        your_key:
 	            connection: http://192.168.0.14:3000
 	            version: 1.x
 
-## usage
+## Usage
 
 	$client = $this->get('elephantio_client.your_key');
     $client->send('event_name', ['foo' => 'test']);
@@ -33,6 +52,6 @@ This bundle allows you to communicate with a socket.io server (0.x or 1.x) from 
 	$elephantIOClient = $client->getElephantIO();
 	// Refer to Elephant.io doc
 
-## Contribute ? 
+## Contribute ?
 
 If you want to improve this bundle, you can use github pull-request and issue
