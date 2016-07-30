@@ -4,7 +4,7 @@
     "keywords": ["Bundle", "Socket.io", "Elephant.io"],
     "license": "MIT",
     "require": {
-        "wisembly/elephant.io": "3.0.*"
+        "wisembly/elephant.io": "~3.0"
     },
     "require-dev": {
         "atoum/atoum"                   : "dev-master",
