@@ -90,10 +90,14 @@ class Client
      * @param mixed  $data      data to send must be serializable
      * @param string $namespace namespace for event
      */
-    public function send($eventName, $data, $namespace = '/')
+    public function send($eventName, $data, $namespace = null)
     {
         $this->elephantIO->initialize();
-        $this->elephantIO->of($namespace);
+
+        if($namespace !== null) {
+            $this->elephantIO->of($namespace);
+        }
+
         $this->elephantIO->emit($eventName, $data);
         $this->elephantIO->close();
     }
