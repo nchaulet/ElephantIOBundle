@@ -51,7 +51,7 @@ class Client
     /**
      * Set namespace for event
      *
-     * @param $namespace
+     * @param string $namespace
      *
      * @return self
      */
