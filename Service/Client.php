@@ -16,7 +16,7 @@ class Client
     /**
      * Gets the value of elephant.
      *
-     * @return mixed
+     * @return \ElephantIO\Client
      */
     public function getElephantIO()
     {
@@ -37,13 +37,67 @@ class Client
     }
 
     /**
-    * Send to socketio
-    * @param string $eventName event name
-    * @param mixed  $data      data to send must be serializable
-    */
-    public function send($eventName, $data)
+     * Initialize client
+     *
+     * @return self
+     */
+    public function initialize()
     {
         $this->elephantIO->initialize();
+
+        return $this;
+    }
+
+    /**
+     * Set namespace for event
+     *
+     * @param string $namespace
+     *
+     * @return self
+     */
+    public function of($namespace)
+    {
+        $this->elephantIO->of($namespace);
+
+        return $this;
+    }
+
+    /**
+     * Emit message to socket.io
+     *
+     * @param string $event
+     * @param array  $args
+     * @return $this
+     */
+    public function emit($event, array $args)
+    {
+        $this->elephantIO->emit($event, $args);
+
+        return $this;
+    }
+
+    /**
+     * Close client
+     */
+    public function close()
+    {
+        $this->elephantIO->close();
+    }
+
+    /**
+     * Send to socket.io
+     * @param string $eventName event name
+     * @param mixed  $data      data to send must be serializable
+     * @param string $namespace namespace for event
+     */
+    public function send($eventName, $data, $namespace = null)
+    {
+        $this->elephantIO->initialize();
+
+        if($namespace !== null) {
+            $this->elephantIO->of($namespace);
+        }
+
         $this->elephantIO->emit($eventName, $data);
         $this->elephantIO->close();
     }
