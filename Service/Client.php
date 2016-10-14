@@ -67,6 +67,7 @@ class Client
      *
      * @param string $event
      * @param array  $args
+     *
      * @return $this
      */
     public function emit($event, array $args)
@@ -94,7 +95,7 @@ class Client
     {
         $this->elephantIO->initialize();
 
-        if($namespace !== null) {
+        if ($namespace !== null) {
             $this->elephantIO->of($namespace);
         }
 
