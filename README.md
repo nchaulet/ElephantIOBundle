@@ -8,7 +8,7 @@
 
 [Elephant.io](https://github.com/Wisembly/elephant.io) library integration in symfony2.
 
-This bundle allows you to communicate with a socket.io server (0.x or 1.x) from a Symfony2 application.
+This bundle allows you to communicate with a socket.io server (0.x, 1.x or 2.x) from a Symfony2 application.
 
 ## Installation
 
@@ -35,11 +35,14 @@ public function registerbundles()
 	    clients:
 	        default:
 	            connection: http://192.168.0.14:3006
-	            # specify version 0.x for 0.* version and 1.x for 1.0 version
+	            # specify version 0.x for 0.* version, 1.x for 1.0 version and 2.x for 2.0 version
 	            version: 0.x
 	        your_key:
 	            connection: http://192.168.0.14:3000
 	            version: 1.x
+            your_key_2:
+                connection: http://192.168.0.14:3002
+                version: 2.x
 
 ## Usage
 

@@ -45,8 +45,11 @@ class NcElephantIOExtension extends Extension
             case '0.x':
                 $versionDefinition = new Definition('ElephantIO\Engine\SocketIO\Version0X');
                 break;
-            default:
+            case '1.x':
                 $versionDefinition = new Definition('ElephantIO\Engine\SocketIO\Version1X');
+                break;
+            default:
+                $versionDefinition = new Definition('ElephantIO\Engine\SocketIO\Version2X');
                 break;
         }
 
